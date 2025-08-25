@@ -1,0 +1,1 @@
+package com.ecommerce.shared; public record OrderDto(String orderId,String customerId,String productId,int quantity) {}
