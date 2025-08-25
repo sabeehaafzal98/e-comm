@@ -1,0 +1,1 @@
+package com.ecommerce.shipping; import com.ecommerce.activities.ShippingActivity; import com.ecommerce.shared.OrderDto; public class ShippingActivityImpl implements ShippingActivity { public void shipOrder(OrderDto order){ System.out.println("Shipping order to customer: "+order.customerId()); } }

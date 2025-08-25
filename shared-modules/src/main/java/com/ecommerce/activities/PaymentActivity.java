@@ -1,0 +1,1 @@
+package com.ecommerce.activities; import com.ecommerce.shared.OrderDto; import io.temporal.activity.ActivityInterface; @ActivityInterface public interface PaymentActivity { void processPayment(OrderDto order); }

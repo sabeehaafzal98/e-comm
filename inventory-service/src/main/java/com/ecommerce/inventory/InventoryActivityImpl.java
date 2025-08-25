@@ -1,0 +1,1 @@
+package com.ecommerce.inventory; import com.ecommerce.activities.InventoryActivity; import com.ecommerce.shared.OrderDto; public class InventoryActivityImpl implements InventoryActivity { public void reserveInventory(OrderDto order){ System.out.println("Reserving inventory for product: "+order.productId()); } }
