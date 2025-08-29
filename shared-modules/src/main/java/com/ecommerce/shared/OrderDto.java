@@ -1,6 +1,6 @@
 package com.ecommerce.shared;
 
-public record OrderDto(String orderId,String customerId,Long productId,int quantity)
+public record OrderDto(Long orderId,String productName,int quantity,double price)
 {
 
 }

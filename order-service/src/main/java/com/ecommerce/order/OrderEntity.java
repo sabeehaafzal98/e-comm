@@ -3,7 +3,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 @Entity public class OrderEntity extends PanacheEntityBase {
     @Id
-    public String orderId;
+    public Long orderId;
     public String customerId;
     public long productId;
     public int quantity; }

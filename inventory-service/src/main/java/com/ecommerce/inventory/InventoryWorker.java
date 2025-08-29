@@ -5,7 +5,9 @@ import io.temporal.worker.*;
 import jakarta.annotation.*;
 import jakarta.enterprise.context.ApplicationScoped;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
-@ApplicationScoped public class InventoryWorker {
+
+@ApplicationScoped
+public class InventoryWorker {
     @ConfigProperty(name="temporal.target", defaultValue="temporal:7233")
     String target;
     private WorkerFactory factory;
