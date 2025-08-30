@@ -20,12 +20,21 @@ public class InventoryResource {
     public Response addInventory(InventoryDto dto){
         InventoryEntity entity=InventoryMapper.toEntity(dto);
         entity.persist();
-        return Response.ok(entity).build();
+        return Response.status(Response.Status.CREATED).entity(InventoryMapper.toDto(entity)).build();
     }
 
     @GET
     public List<InventoryDto> getAllInventories(){
         return InventoryEntity.listAll().stream().map(e->InventoryMapper.toDto((InventoryEntity)e)).collect(Collectors.toList());
+    }
+
+    @GET
+    @Path("/{id}")
+    public InventoryDto getById(@PathParam("id")Long id){
+        InventoryEntity entity = InventoryEntity.findById(id);
+        if(entity==null)
+            throw new NotFoundException("Product not found");
+        return InventoryMapper.toDto(entity);
     }
 
 }

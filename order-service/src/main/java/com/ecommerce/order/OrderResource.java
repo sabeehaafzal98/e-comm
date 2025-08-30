@@ -17,11 +17,17 @@ public class OrderResource {
 
     @POST
     @Transactional
-    public Response placeOrder(OrderDto order){
-        OrderEntity e=OrderMapper.toEntity(order);
-        e.persist();
-        starter.startWorkflow(order);
-        return Response.ok("Order placed").build();
+    public Response create(OrderDto order){
+        OrderEntity entity= new OrderEntity();
+        entity.productId= order.productId();
+        entity.quantity= order.quantity();
+        entity.amount= order.amount();
+        entity.customerId= order.customerId();
+        entity.persist();
+        OrderDto persisted = OrderMapper.toDto(entity);
+        //start workflow async fire-and-forget)
+        starter.startWorkflow(persisted);
+        return Response.status(Response.Status.ACCEPTED).entity(persisted).build();
     }
 
     @GET

@@ -10,9 +10,12 @@ public final class OrderMapper {
         e.orderId=d.orderId();
         e.customerId=d.customerId();
         e.productId=d.productId();
-        e.quantity=d.quantity(); return e;
+        e.quantity=d.quantity();
+        e.status = "NEW";
+        e.amount=d.amount();
+        return e;
     }
     public static OrderDto toDto(OrderEntity e){
-        return new OrderDto(e.orderId,e.customerId,e.productId,e.quantity);
+        return new OrderDto(e.orderId,e.productId,e.quantity,e.amount,e.customerId);
     }
 }
